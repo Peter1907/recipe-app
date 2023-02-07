@@ -1,0 +1,9 @@
+<body>
+  <h1 class="text-3xl font-bold underline">
+    List of users
+  </h1>
+  <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+  <% @users.each do |user| %>
+    <p><%= user.name %></p>
+  <% end %>
+</body>
