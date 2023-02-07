@@ -63,3 +63,12 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+
+# Rubocop for best practices
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+# Authentication
+gem 'devise'
+
+# CSS Tailwinds
+gem 'tailwindcss-rails', '~> 2.0'
