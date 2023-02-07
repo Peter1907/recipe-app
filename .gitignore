@@ -34,4 +34,4 @@
 !/app/assets/builds/.keep
 
 # dependencies
-/node_modules
+# /node_modules
