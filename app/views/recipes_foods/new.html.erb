@@ -3,8 +3,8 @@
   <h2 class = "text-2xl mb-4">Add a New ingredient</h2>
   <%= form_with model: @recipes_food, url: recipes_foods_path, method: :post do |form| %>
     <div class = "mb-4">
-      <%= form.label :food, "Select Food:", class: "mr-2" %>
-      <%= form.collection_select :food, @foods, :id, :name, prompt: true, class: "rounded" %>
+      <%= form.label :food_id, "Select Food:", class: "mr-2" %>
+      <%= form.collection_select :food_id, @foods, :id, :name, prompt: true, class: "rounded" %>
     </div>
     <div class = "mb-4">
       <%= form.text_field :quantity, placeholder: 'Quantity', class: "rounded" %>

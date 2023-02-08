@@ -5,9 +5,9 @@ class RecipesFoodsController < ApplicationController
   end
 
   def create
-    recipes_food = RecipesFood.new()
+    recipes_food = RecipesFood.new
     recipes_food.recipe_id = params[:recipes_food][:recipe_id]
-    recipes_food.food_id = params[:recipes_food][:food]
+    recipes_food.food_id = params[:recipes_food][:food_id]
     recipes_food.quantity = params[:recipes_food][:quantity]
     if recipes_food.save
       flash[:notice] = 'Ingredient added to recipe'
