@@ -70,5 +70,8 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 # Authentication
 gem 'devise'
 
+# Authentication
+gem 'cancancan'
+
 # CSS Tailwinds
 gem 'tailwindcss-rails', '~> 2.0'

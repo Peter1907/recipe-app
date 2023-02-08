@@ -1,0 +1,23 @@
+<h1 class = "text-3xl font-bold mb-4">Recipe App</h1>
+<h2 class = "text-2xl mb-4">Add a New Ingredient</h2>
+<%= form_with model: @food, url: foods_path, method: :post do |form| %>
+  <div class = "flex flex-row justify-between items-center mb-4">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class = "flex flex-row justify-between items-center mb-4">
+    <%= form.label :measurement_unit, class: 'mr-4' %>
+    <%= form.text_field :measurement_unit %>
+  </div>
+  <div class = "flex flex-row justify-between items-center mb-4">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+  <div class = "flex flex-row justify-between items-center mb-4">
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+  </div>
+  <div class = "mt-6">
+    <%= form.submit :'Create Ingredient', class: 'rounded-full border-2 pl-2 pr-2 pt-2 pb-2 bg-slate-500 text-white' %>
+  </div>
+<% end %>
