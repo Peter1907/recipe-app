@@ -1,0 +1,40 @@
+<div>
+  <div class = "flex flex-row mb-4">
+    <h1 class = "text-3xl font-bold mb-4 mr-48 ml-2">Recipe App</h1>
+    <%= link_to new_food_path do %>
+      <button class = "rounded-full border-2 pl-2 pr-2 pt-2 pb-2 bg-slate-500 text-white" >Add Food</button>
+    <% end %>
+  </div>
+
+  <table class = "table-auto border-spacing-2">
+    <thead class = "border-2">
+      <tr class = "border-2">
+        <th class = "border-2 pl-4 pr-4">Food</th>
+        <th class = "border-2 pl-4 pr-4">Measurement Unit</th>
+        <th class = "border-2 pl-4 pr-4">Unit Price</th>
+        <th class = "border-2 pl-4 pr-4">Quantity</th>
+        <th class = "border-2 pl-4 pr-4">Actions</th>
+      </tr>
+    </thead class = "border-2">
+    <tbody class = "border-2">
+      <% @foods.each do |food| %>
+        <tr class = "border-2">
+          <td class = "border-2 pl-4 pr-4"><%= food.name %></td>
+          <td class = "border-2 pl-4 pr-4"><%= food.measurement_unit %></td>
+          <td class = "border-2 pl-4 pr-4">$<%= food.price %></td>
+          <td class = "border-2 pl-4 pr-4"><%= food.quantity %></td>
+          <%= form_with url: food_path(food), method: :delete, scope: :food do |form| %>      
+            <td class = "border-2 pl-4 pr-4 bg-blue-500">
+              <% if can? :view_food, food %>
+                <%= form.submit :'Remove', class: 'text-yellow-400 font-medium cursor-pointer' %>
+              <% else %>
+                NA
+              <% end %>
+            </td> 
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

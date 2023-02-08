@@ -1,9 +1,9 @@
 <body>
-  <h1 class="text-3xl font-bold underline">
-    List of users
-  </h1>
-  <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+  <div class = "flex flex-row">
+    <h1 class="text-3xl mr-32 mb-8 font-bold underline">Recipe App Users</h1>
+    <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'rounded-full border-2 pl-2 pr-2 pt-2 pb-2 bg-slate-500 text-white'  %>
+  </div>
   <% @users.each do |user| %>
-    <p><%= user.name %></p>
+    <p class = "self-start">User Name: <%= user.name %>, email: <%= user.email %></p>
   <% end %>
 </body>
