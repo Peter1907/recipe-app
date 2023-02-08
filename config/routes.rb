@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root to: 'users#index'
 
   resources :users, only: %i[index]
-  resources :recipes, only: %i[index show destroy]
+  resources :recipes, only: %i[index show new create destroy]
   resources :foods, only: %i[index new create destroy]
 end

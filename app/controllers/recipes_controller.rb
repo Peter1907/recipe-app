@@ -7,9 +7,31 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
+  def create
+    @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    if @recipe.save
+      flash[:notice] = 'Recipe created'
+      redirect_to recipes_path
+    else
+      flash.now[:alert] = 'Recipe couldn\'t be created'
+      render :new
+    end
+  end
+
   def destroy
     Recipe.destroy(params[:id])
     flash[:notice] = 'Recipe deleted'
     redirect_to recipes_path
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
