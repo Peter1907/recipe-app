@@ -1,0 +1,21 @@
+<div class="new-recipe flex flex-col items-center mx-auto mt-8">
+  <h1 class = "text-3xl font-bold mb-4">Recipes</h1>
+  <h2 class = "text-2xl mb-4">Add a New ingredient</h2>
+  <%= form_with model: @recipes_food, url: recipes_foods_path, method: :post do |form| %>
+    <div class = "mb-4">
+      <%= form.label :food, "Select Food:", class: "mr-2" %>
+      <%= form.collection_select :food, @foods, :id, :name, prompt: true, class: "rounded" %>
+    </div>
+    <div class = "mb-4">
+      <%= form.text_field :quantity, placeholder: 'Quantity', class: "rounded" %>
+    </div>
+    <%= form.hidden_field :recipe_id, value: params[:format].to_i %>
+    <div class = "mt-6">
+      <%= form.submit 'Add', class: 'cursor-pointer font-semibold rounded px-4 py-2 bg-cyan-300 hover:bg-cyan-700 hover:text-white' %>
+    </div>
+    <div class = "mt-6">
+      <%= link_to "Cancel", :back, class: 'cursor-pointer font-semibold rounded px-4 py-2 bg-cyan-300 hover:bg-cyan-700 hover:text-white' %>  
+    </div>
+  <% end %>
+  <%= @params %>
+</div>
