@@ -11,9 +11,13 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class = "flex flex-col items-center mt-4 ml-4 mr-4">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <body>
+    <% if flash[:notice] %>
+      <p class="notice text-center bg-green-400 w-full p-4 text-green-900 font-semibold"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert text-center bg-red-400 w-full p-4 text-red-900 font-semibold"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

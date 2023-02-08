@@ -1,6 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :user
-  has_many :recipes, through: :recipes_foods
+  has_and_belongs_to_many :recipes, join_table: :recipes_foods
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :measurement_unit, presence: true, length: { maximum: 10 }
