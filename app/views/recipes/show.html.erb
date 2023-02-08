@@ -30,7 +30,7 @@
   </div>
   <div class="buttons w-[100%] flex flex-wrap space-y-2 justify-between items-baseline px-4 py-2 sm:text-xl sm:w-[90%]">
     <%= link_to "Generate Shopping List", root_path, class: "px-2 py-1 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
-    <%= link_to "Add Ingredient", new_food_path, class: "px-2 py-1 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
+    <%= link_to "Add Ingredient", new_recipes_food_path(@recipe), class: "px-2 py-1 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
   </div>
   <hr class="border border-black w-[80%]">
   <% if @recipe.foods.length > 0 %>
