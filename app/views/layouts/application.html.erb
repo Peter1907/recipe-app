@@ -12,8 +12,12 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if flash[:notice] %>
+      <p class="notice text-center bg-green-500 w-full p-4 text-green-900 font-semibold"><%= notice %></p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert text-center bg-red-500 w-full p-4 text-red-900 font-semibold"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
