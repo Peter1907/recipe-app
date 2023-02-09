@@ -1,0 +1,20 @@
+<div class="nav-bar w-[100%] bg-blue fixed">
+  <div class="nav-bar-content flex justify-between items-center w-[90%] mx-auto">
+    <div class="logo">
+      <img src="/logo.png" alt="logo" class="w-24 h-24 m-2">
+    </div>
+    <div class="nav-links">
+      <ul class="desktop flex flex-col sm:flex-row">
+        <li>
+          <%= link_to "Home", root_path, class: "text-xl font-semibold text-white rounded hover:text-yellow hover:underline sm:py-3 sm:px-6" %>
+        </li>
+        <li>
+          <%= link_to "Recipes", recipes_path, class: "text-xl font-semibold text-white rounded hover:text-yellow hover:underline sm:py-3 sm:px-6" %>
+        </li>
+        <li>
+          <%= link_to "Foods", foods_path, class: "text-xl font-semibold text-white rounded hover:text-yellow hover:underline sm:py-3 sm:px-6" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

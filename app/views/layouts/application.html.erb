@@ -7,17 +7,20 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "load" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <p class="notice text-center bg-green-400 w-full p-4 text-green-900 font-semibold"><%= notice %></p>
-    <% end %>
-    <% if flash[:alert] %>
-      <p class="alert text-center bg-red-400 w-full p-4 text-red-900 font-semibold"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+    <%= render "layouts/navbar" %>
+    <div class="w-screen pt-28 flex flex-col items-center">
+      <% if flash[:notice] %>
+        <p class="notice text-center bg-green-400 w-screen p-4 text-green-900 font-semibold"><%= notice %></p>
+      <% end %>
+      <% if flash[:alert] %>
+        <p class="alert text-center bg-red-400 w-full p-4 text-red-900 font-semibold"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
