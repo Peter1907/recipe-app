@@ -1,4 +1,6 @@
 class ShoppingListsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @recipe = Recipe.find(params[:format])
     @total = total_value
