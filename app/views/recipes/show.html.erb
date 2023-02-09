@@ -5,8 +5,8 @@
   <div class="recipe-details flex w-[90%] justify-between px-4 py-2 sm:text-xl">
     <div class="cooking-details space-y-4">
       <p class="flex flex-col space-x-2 sm:flex-row sm:items-baseline">
-        <span class="font-semibold border">Preparation time:</span>
-        <span class="ml-2 sm:ml-0 border">
+        <span class="font-semibold">Preparation time:</span>
+        <span class="ml-2 sm:ml-0">
           <%= @recipe.preparation_time %> minutes
         </span>
       </p>
@@ -44,11 +44,12 @@
         </tr>
       </thead class = "border border-black">
       <tbody class = "border border-black">
-        <% @recipe.foods.each do |food| %>
+        <% @recipes_foods.each do |item| %>
           <tr class = "border border-black">
+            <% food = Food.find(item.food_id) %>
             <td class = "border border-black px-4"><%= food.name %></td>
-            <td class = "border border-black px-4"><%= food.recipes_foods.first.quantity %></td>
-            <td class = "border border-black px-4">$<%= food.price * food.recipes_foods.first.quantity %></td>
+            <td class = "border border-black px-4"><%= item.quantity %></td>
+            <td class = "border border-black px-4">$<%= food.price * item.quantity %></td>
             <td class = "border border-black px-4">
               <%= button_to 'Remove', recipes_food_path(food.recipes_foods.first), method: :delete, class: "px-2 py-1 m-0.5 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6 sm:m-2" %>
             </td>
