@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :recipes_foods, dependent: :destroy
   has_and_belongs_to_many :foods, join_table: :recipes_foods
+  has_many :recipes_foods, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 30 }
   validates :description, presence: true, length: { minimum: 20 }
