@@ -1,12 +1,12 @@
-<div class="recipe-details flex flex-col w-full min-h-screen bg-slate-200 items-center gap-10 p-[5%]">
+<div class="recipe-details flex flex-col w-full min-h-screen items-center gap-10 p-[5%]">
   <h1 class="text-3xl font-semibold sm:text-6xl">
     <%= @recipe.name %> Recipe
   </h1>
   <div class="recipe-details flex w-[90%] justify-between px-4 py-2 sm:text-xl">
     <div class="cooking-details space-y-4">
       <p class="flex flex-col space-x-2 sm:flex-row sm:items-baseline">
-        <span class="font-semibold border">Preparation time:</span>
-        <span class="ml-2 sm:ml-0 border">
+        <span class="font-semibold">Preparation time:</span>
+        <span class="ml-2 sm:ml-0">
           <%= @recipe.preparation_time %> minutes
         </span>
       </p>
@@ -29,11 +29,11 @@
     </div>
   </div>
   <div class="buttons w-[100%] flex flex-wrap space-y-2 justify-between items-baseline px-4 py-2 sm:text-xl sm:w-[90%]">
-    <%= link_to "Generate Shopping List", root_path, class: "px-2 py-1 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
-    <%= link_to "Add Ingredient", new_recipes_food_path(@recipe), class: "px-2 py-1 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
+    <%= link_to "Generate Shopping List", shopping_lists_path(@recipe), class: "px-2 py-1 bg-cyan-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
+    <%= link_to "Add Ingredient", new_recipes_food_path(@recipe), class: "px-2 py-1 bg-cyan-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6" %>
   </div>
   <hr class="border border-black w-[80%]">
-  <% if @recipe.foods.length > 0 %>
+  <% if @recipe.recipes_foods.length > 0 %>
     <table class="table-auto border-spacing-2 sm:text-xl">
       <thead class="border border-black">
         <tr class="border border-black">
@@ -44,13 +44,14 @@
         </tr>
       </thead class = "border border-black">
       <tbody class = "border border-black">
-        <% @recipe.foods.each do |food| %>
+        <% @recipes_foods.each do |item| %>
           <tr class = "border border-black">
+            <% food = Food.find(item.food_id) %>
             <td class = "border border-black px-4"><%= food.name %></td>
-            <td class = "border border-black px-4"><%= food.quantity %></td>
-            <td class = "border border-black px-4">$<%= food.price * food.quantity %></td>
+            <td class = "border border-black px-4"><%= item.quantity %> <%= food.measurement_unit %></td>
+            <td class = "border border-black px-4">$<%= food.price * item.quantity %></td>
             <td class = "border border-black px-4">
-              <%= button_to 'Remove', food_path(food), class: "px-2 py-1 m-0.5 bg-sky-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6 sm:m-2" %>
+              <%= button_to 'Remove', recipes_food_path(food.recipes_foods.first), method: :delete, class: "px-2 py-1 m-0.5 bg-cyan-300 hover:bg-cyan-700 hover:text-white rounded sm:py-3 sm:px-6 sm:m-2" %>
             </td>
           </tr>
         <% end %>
@@ -59,4 +60,5 @@
   <% else %>
     <p class="text-xl sm:text-3xl">No ingredients added yet</p>
   <% end %>
+  <%= link_to "Back", recipes_path, class: 'cursor-pointer font-semibold rounded px-4 py-2 bg-cyan-300 hover:bg-cyan-700 hover:text-white sm:text-xl sm:px-8 sm:py-4' %>
 </div>
