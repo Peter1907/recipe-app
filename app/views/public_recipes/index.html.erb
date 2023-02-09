@@ -1,0 +1,19 @@
+<div class="recipes flex flex-col w-full min-h-screen bg-slate-200 items-center gap-4 p-[2%]">
+  <div class = "flex flex-row mb-4">
+    <h1 class="text-3xl font-semibold sm:text-6xl">Public Recipes</h1>
+  </div>
+  <% @public_recipes.each do |recipe| %>
+    <div class="recipe flex flex-row justify-between w-[64%] border border-black p-8">
+      <div>
+        <%= link_to recipe_path(recipe) do %>
+          <p class = "self-start hover:text-red-400 hover:underline text-xl font-semibold">Recipe Name: <%= recipe.name %></p>
+        <% end %>
+        <p class = "self-start">By: <%= recipe.user.name %></p>
+      </div>
+      <div>
+        <p class = "self-start">Total Food Items: <%= RecipesFood.where(recipe_id: recipe.id).count %></p>
+        <p class = "self-start">Total Price: $<%= recipe.total_value(recipe.id) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
