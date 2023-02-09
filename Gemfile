@@ -75,3 +75,6 @@ gem 'cancancan'
 
 # CSS Tailwinds
 gem 'tailwindcss-rails', '~> 2.0'
+
+# N+1 Problems
+gem 'bullet'

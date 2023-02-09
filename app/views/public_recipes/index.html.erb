@@ -9,8 +9,8 @@
         <p class = "self-start">By: <%= recipe.user.name %></p>
       </div>
       <div>
-        <p class = "self-start">Total Food Items: x</p>
-        <p class = "self-start">Total Price: y</p>
+        <p class = "self-start">Total Food Items: <%= RecipesFood.where(recipe_id: recipe.id).count %></p>
+        <p class = "self-start">Total Price: $<%= recipe.total_value(recipe.id) %></p>
       </div>
     </div>
   <% end %>
