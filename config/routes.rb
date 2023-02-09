@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :recipes, only: %i[index show new create destroy]
   resources :foods, only: %i[index new create destroy]
   resources :public_recipes, only: %i[index]
-  resources :recipes_foods, only: %i[new create]
+  resources :recipes_foods, only: %i[new create destroy]
+  resources :shopping_lists, only: %i[index]
 end

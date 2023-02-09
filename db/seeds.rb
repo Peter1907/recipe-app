@@ -20,8 +20,8 @@ Food.create(name: "Potato", measurement_unit: "kg", price: 1.5, quantity: 10, us
 Food.create(name: "Carrot", measurement_unit: "kg", price: 1.5, quantity: 10, user_id: 1)
 Food.create(name: "Cucumber", measurement_unit: "kg", price: 1.5, quantity: 10, user_id: 1)
 
-RecipesFood.create(recipe_id: 1, food_id: 1, quantity: 1)
-RecipesFood.create(recipe_id: 1, food_id: 2, quantity: 1)
-RecipesFood.create(recipe_id: 1, food_id: 3, quantity: 1)
-RecipesFood.create(recipe_id: 1, food_id: 4, quantity: 1)
-RecipesFood.create(recipe_id: 1, food_id: 5, quantity: 1)
+RecipesFood.create(recipe_id: 1, food_id: 1, quantity: 12)
+RecipesFood.create(recipe_id: 1, food_id: 2, quantity: 45)
+RecipesFood.create(recipe_id: 1, food_id: 3, quantity: 2)
+RecipesFood.create(recipe_id: 1, food_id: 4, quantity: 33)
+RecipesFood.create(recipe_id: 1, food_id: 5, quantity: 19)

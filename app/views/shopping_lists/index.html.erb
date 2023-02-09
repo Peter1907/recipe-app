@@ -1,0 +1,30 @@
+<div class="shopping-list flex flex-col w-full min-h-screen items-center gap-10 p-[5%]">
+  <h1 class="text-3xl font-semibold sm:text-6xl text-center">
+    Shopping List<br>for <%= @recipe.name %>
+  </h1>
+  <div class="shopping-list-info flex flex-col justify-between w-[90%] mt-6 sm:flex-row sm:text-2xl sm:w-[60%] sm:mt-14">
+    <p><strong>Amout of food items to buy:</strong> <%= @recipe.recipes_foods.length %></p>
+    <p class="mt-4 sm:mt-0"><strong>Total value of food needed:</strong> $<%= @total %></p>
+  </div>
+  <hr class="border border-black w-[80%]">
+  <table class="table-auto border-spacing-2 sm:text-xl">
+      <thead class="border border-black">
+        <tr class="border border-black">
+          <th class="border border-black px-4 font-semibold sm:p-4">Food</th>
+          <th class="border border-black px-4 font-semibold sm:p-4">Quantity</th>
+          <th class="border border-black px-4 font-semibold sm:p-4">Price</th>
+        </tr>
+      </thead class = "border border-black">
+      <tbody class = "border border-black">
+        <% @recipes_foods.each do |item| %>
+          <tr class = "border border-black">
+            <% food = Food.find(item.food_id) %>
+            <td class = "border border-black px-6 py-1 sm:py-4 sm:px-8"><%= food.name %></td>
+            <td class = "border border-black px-6 py-1 sm:py-4 sm:px-8"><%= item.quantity %> <%= food.measurement_unit %></td>
+            <td class = "border border-black px-6 py-1 sm:py-4 sm:px-8">$<%= food.price * item.quantity %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Go Back", recipe_path(@recipe), class: 'cursor-pointer font-semibold rounded px-4 py-2 bg-cyan-300 hover:bg-cyan-700 hover:text-white sm:text-xl sm:px-8 sm:py-4' %>
+</div>
