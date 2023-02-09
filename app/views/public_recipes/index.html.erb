@@ -5,7 +5,9 @@
   <% @public_recipes.each do |recipe| %>
     <div class="recipe flex flex-row justify-between w-[64%] border border-black p-8">
       <div>
-        <p class = "self-start">Recipe Name: <%= recipe.name %></p>
+        <%= link_to recipe_path(recipe) do %>
+          <p class = "self-start hover:text-red-400 hover:underline text-xl font-semibold">Recipe Name: <%= recipe.name %></p>
+        <% end %>
         <p class = "self-start">By: <%= recipe.user.name %></p>
       </div>
       <div>
