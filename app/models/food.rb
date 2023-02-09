@@ -1,5 +1,6 @@
 class Food < ApplicationRecord
   belongs_to :user
+  has_many :recipes_foods, dependent: :destroy
   has_and_belongs_to_many :recipes, join_table: :recipes_foods
 
   validates :name, presence: true, length: { maximum: 30 }
