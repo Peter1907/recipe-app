@@ -8,7 +8,6 @@ class RecipesFoodsController < ApplicationController
     if RecipesFood.where(food_id: params[:recipes_food][:food_id], recipe_id: params[:recipes_food][:recipe_id]).exists?
       flash[:alert] = 'Ingredient already added to recipe'
       redirect_to recipe_path(params[:recipes_food][:recipe_id])
-      return
     else
       recipes_food = RecipesFood.new
       recipes_food.recipe_id = params[:recipes_food][:recipe_id]
