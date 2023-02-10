@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   let(:user) { User.create(name: 'test', email: 'test@test.com', password: '123456') }
-  let(:recipe) { Recipe.create(name: 'test', description: 'test', preparation_time: 10, cooking_time: 10, public: true, user_id: user.id) }
+  let(:recipe) do
+    Recipe.create(name: 'test', description: 'test', preparation_time: 10, cooking_time: 10, public: true,
+                  user_id: user.id)
+  end
   let(:food) { Food.create(name: 'test', measurement_unit: 'kg', price: 10, quantity: 10, user_id: user.id) }
   let(:recipes_food) { RecipesFood.create(recipe_id: recipe.id, food_id: food.id, quantity: 10) }
 
