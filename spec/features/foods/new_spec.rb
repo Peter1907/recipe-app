@@ -6,7 +6,7 @@ RSpec.describe 'Food New', type: :feature do
     @user.confirm
     sign_in @user
 
-    @addfood = "a[href='/foods/new']"
+    @cancel = "a[href='http://127.0.0.1:3000/foods']"
 
     visit new_food_path
   end
@@ -15,8 +15,13 @@ RSpec.describe 'Food New', type: :feature do
     expect(page).to have_content('Add a New Ingredient')
   end
 
-  it 'When I click on Add Food, I am redirected to the Food Creation form' do
-    find(@addfood.to_s).click
-    expect(page).to have_content('Add a New Ingredient')
+  it 'When I click on Add Food, I am redirected to the Food List Page' do
+    click_on 'Add Food'
+    expect(page).to have_content('Food List')
   end
+
+  # it 'When I click on Cancel, I am redirected to the Food List Page' do
+  #   find_link('Cancel').click
+  #   expect(page).to have_content('Food List')
+  # end
 end

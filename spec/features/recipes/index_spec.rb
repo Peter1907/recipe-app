@@ -5,8 +5,9 @@ RSpec.describe 'Recipe index page', type: :feature do
     @user = User.create(name: 'Peter', email: 'peter@gmail.com', password: '123456', password_confirmation: '123456')
     @user.confirm
     sign_in @user
-    @recipe = Recipe.create(name: 'Pizza', description: 'Delicious pizza made with care!', preparation_time: 30, cooking_time: 30, public: true, user: @user)
-    
+    @recipe = Recipe.create(name: 'Pizza', description: 'Delicious pizza made with care!', preparation_time: 30,
+                            cooking_time: 30, public: true, user: @user)
+
     visit recipes_path
   end
 
