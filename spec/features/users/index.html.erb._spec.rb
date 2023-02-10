@@ -4,6 +4,7 @@ RSpec.describe 'User Index', type: :feature do
   before :each do
     @user = User.create(name: 'test', email: 'test@mail.com', password: '123456', password_confirmation: '123456')
     @user.confirm
+    sign_in @user
 
     visit users_path
   end
@@ -13,13 +14,8 @@ RSpec.describe 'User Index', type: :feature do
     expect(page).to have_content(@user.email)
   end
 
-  # it "When I click on a user, I am redirected to that user's show page" do
-  #   find(@user1_url).click
-  #   expect(page).to have_content('Systems Engineering Student')
-  # end
-
-  # it "When I click on a user, I am redirected to that user's show page" do
-  #   find(@user2_url).click
-  #   expect(page).to have_content('Law Student')
-  # end
+  it 'When I click on Logout, I am redirected to the Public Recipes' do
+    find_button('Logout').click
+    expect(page).to have_content('Public Recipes')
+  end
 end
