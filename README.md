@@ -67,6 +67,17 @@ The application is a fully functional website that shows the list of posts and e
 
 - Coming soon when the project is finished
 
+## Screenshots
+
+### Desktop
+  <img src="./screenshots/D1.png">
+  <img src="./screenshots/D2.png">
+
+### Mobile
+  <img src="./screenshots/M1.png">
+  <img src="./screenshots/M2.png">
+
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
