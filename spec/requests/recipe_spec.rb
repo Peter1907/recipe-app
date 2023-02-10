@@ -10,7 +10,6 @@ RSpec.describe Recipe, type: :request do
                             preparation_time: 10, cooking_time: 10, public: true, user: @user)
   end
 
-
   describe 'Index action' do
     before(:each) { get recipes_path }
 

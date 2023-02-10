@@ -14,7 +14,6 @@ RSpec.describe 'Shopping List', type: :request do
     @recipes_food2 = RecipesFood.create(recipe_id: @recipe.id, food_id: @food2.id, quantity: 10)
   end
 
-
   describe 'Index action' do
     before(:each) { get shopping_lists_path(@recipe.id) }
 

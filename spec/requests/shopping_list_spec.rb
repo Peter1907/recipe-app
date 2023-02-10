@@ -9,7 +9,6 @@ RSpec.describe 'Shopping List', type: :request do
                             preparation_time: 10, cooking_time: 10, public: true, user: @user)
   end
 
-
   describe 'Index action' do
     before(:each) { get shopping_lists_path(@recipe.id) }
 

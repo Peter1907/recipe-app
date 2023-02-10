@@ -5,7 +5,8 @@ RSpec.describe 'Shopping List', type: :feature do
     @user = User.create(name: 'Peter', email: 'peter@gmail.com', password: '123456', password_confirmation: '123456')
     @user.confirm
     sign_in @user
-    @recipe = Recipe.create(name: 'Pizza', description: 'Delicious pizza made with care!', preparation_time: 30, cooking_time: 30, public: true, user: @user)
+    @recipe = Recipe.create(name: 'Pizza', description: 'Delicious pizza made with care!', preparation_time: 30,
+                            cooking_time: 30, public: true, user: @user)
     @food = Food.create(name: 'Tomato', price: 1.5, quantity: 1, measurement_unit: 'kg', user: @user)
     @food2 = Food.create(name: 'Cheese', price: 2.5, quantity: 1, measurement_unit: 'kg', user: @user)
     @recipes_food = RecipesFood.create(recipe_id: @recipe.id, food_id: @food.id, quantity: 1)
