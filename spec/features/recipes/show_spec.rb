@@ -10,7 +10,6 @@ RSpec.describe 'Recipe show page', type: :feature do
     @food = Food.create(name: 'Tomato', price: 1.5, quantity: 1, measurement_unit: 'kg', user: @user)
     @food2 = Food.create(name: 'Cheese', price: 2.5, quantity: 1, measurement_unit: 'kg', user: @user)
     @recipes_food = RecipesFood.create(recipe_id: @recipe.id, food_id: @food.id, quantity: 1)
-    @recipes_food2 = RecipesFood.create(recipe_id: @recipe.id, food_id: @food2.id, quantity: 1)
 
     visit recipe_path(@recipe)
   end
@@ -28,7 +27,6 @@ RSpec.describe 'Recipe show page', type: :feature do
 
   it 'displays the recipe ingredients' do
     expect(page).to have_content(@food.name)
-    expect(page).to have_content(@food2.name)
   end
 
   it 'displays a link to make a shopping list' do
@@ -47,5 +45,16 @@ RSpec.describe 'Recipe show page', type: :feature do
   it 'can redirect to the page to add an ingredient' do
     click_on 'Add Ingredient'
     expect(page).to have_current_path(new_recipes_food_path(@recipe))
+  end
+
+  it 'displays links to remove ingredients' do
+    expect(page).to have_button('Remove')
+  end
+
+  it 'can remove an ingredient from the recipe' do
+    click_on('Remove')
+    expect(page).not_to have_content(@food.name)
+    expect(page).to have_content('Ingredient removed successfully')
+    expect(page).to have_current_path(recipe_path(@recipe))
   end
 end
