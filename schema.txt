@@ -2,3 +2,6 @@
 food1 = Food.create(name: 'rice', measurement_unit: 'Kg', price: 3.0, quantity: 100, user: user)
 food2 = Food.create(name: 'potato', measurement_unit: 'Kg', price: 7.0, quantity: 20, user: user)
 food3 = Food.create(name: 'noodle', measurement_unit: 'Kg', price: 15.0, quantity: 10, user: user)
+
+#User Data
+hans = User.create(name: 'hans', email: 'hans@mail.com', password: '123456')
