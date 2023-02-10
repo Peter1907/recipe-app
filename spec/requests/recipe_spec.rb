@@ -6,14 +6,14 @@ RSpec.describe Recipe, type: :request do
     @user.confirm
     sign_in @user
     @recipe = Recipe.create(name: 'test',
-      description: 'lol it was the short description not allowing the recipe to be saved',
-      preparation_time: 10, cooking_time: 10, public: true, user: @user)
+                            description: 'lol it was the short description not allowing the recipe to be saved',
+                            preparation_time: 10, cooking_time: 10, public: true, user: @user)
   end
 
 
   describe 'Index action' do
     before(:each) { get recipes_path }
-    
+
     it 'has the correct response status' do
       expect(response).to have_http_status(200)
     end

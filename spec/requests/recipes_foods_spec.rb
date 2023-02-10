@@ -6,7 +6,7 @@ RSpec.describe 'Shopping List', type: :request do
     @user.confirm
     sign_in @user
     @recipe = Recipe.create(name: 'Pizza recipe', description: 'we need a description that is longer than 20 chars',
-      preparation_time: 10, cooking_time: 10, public: true, user: @user)
+                            preparation_time: 10, cooking_time: 10, public: true, user: @user)
     @food = Food.create(name: 'Tomato', price: 10, quantity: 10, measurement_unit: 'kg', user: @user)
     @food2 = Food.create(name: 'Onion', price: 10, quantity: 10, measurement_unit: 'kg', user: @user)
 

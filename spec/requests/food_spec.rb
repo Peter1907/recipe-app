@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :request do
-
   describe 'Index action' do
     before(:each) do
       @user = User.create(name: 'test', email: 'test@mail.com', password: '123456', password_confirmation: '123456')

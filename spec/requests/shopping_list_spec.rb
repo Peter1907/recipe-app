@@ -6,13 +6,13 @@ RSpec.describe 'Shopping List', type: :request do
     @user.confirm
     sign_in @user
     @recipe = Recipe.create(name: 'Pizza recipe', description: 'we need a description that is longer than 20 chars',
-      preparation_time: 10, cooking_time: 10, public: true, user: @user)
+                            preparation_time: 10, cooking_time: 10, public: true, user: @user)
   end
 
 
   describe 'Index action' do
     before(:each) { get shopping_lists_path(@recipe.id) }
-    
+
     it 'has the correct response status' do
       expect(response).to have_http_status(200)
     end

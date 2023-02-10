@@ -70,10 +70,10 @@ end
 group :test do
   # Use Capybara for integration testing
   gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
 
 # Rubocop for best practices
