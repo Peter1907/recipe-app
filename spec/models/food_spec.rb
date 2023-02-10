@@ -1,36 +1,41 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  user = User.create(name: 'Gabriela', posts_counter: 1)
-  subject { Post.create(author: user, title: 'Post1', comment_counter: 1, like_counter: 1) }
-
+  let(:user) { User.create(name: 'test', email: 'test@test.com', password: '123456') }
+  subject { Food.create(user:, name: 'rice', measurement_unit: 'Kg', price: 3.0, quantity: 100) }
   before { subject.save }
 
-  it 'title must not be blankcharacters' do
-    subject.title = ''
+  it 'name must not be blankcharacters' do
+    subject.name = ''
     expect(subject).to_not be_valid
   end
 
-  it 'title must not exceed 250 characters' do
-    subject.title = 'PostNumber1'
+  it 'name must not exceed 30 characters' do
+    subject.name = 'Rice'
     expect(subject).to be_valid
   end
 
-  it 'comment_counter must be an integer equal or greater than zero' do
-    subject.comment_counter = -1
+  it 'measurement_unit must not be blankcharacters' do
+    subject.measurement_unit = ''
     expect(subject).to_not be_valid
   end
 
-  it 'like_counter must be an integer equal or greater than zero' do
-    subject.like_counter = -1
+  it 'measurement_unit must not exceed 10 characters' do
+    subject.name = 'liters'
+    expect(subject).to be_valid
+  end
+
+  it 'price must not be blankcharacters' do
+    subject.price = ''
     expect(subject).to_not be_valid
   end
 
-  it 'subject should be an instance of the class Post' do
-    expect(subject).to be_instance_of Post
+  it 'price must be equal or greater than zero' do
+    subject.price = -1
+    expect(subject).to_not be_valid
   end
 
-  it 'The method recent_comments should be available for the instance subject' do
-    expect(subject).to respond_to(:recent_comments)
+  it 'subject should be an instance of the class Food' do
+    expect(subject).to be_instance_of Food
   end
 end

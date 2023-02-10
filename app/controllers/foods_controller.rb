@@ -22,14 +22,8 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    food = Food.find(params[:id])
-    food.delete
-
-    if food
-      flash[:success] = 'ingredient deleted successfully'
-    else
-      flash.now[:error] = 'Error: Ingredient could not be deleted'
-    end
+    Food.destroy(params[:id])
+    flash[:notice] = 'Food deleted'
     redirect_to foods_path
   end
 end

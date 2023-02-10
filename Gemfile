@@ -67,6 +67,15 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  # Use Capybara for integration testing
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
+
 # Rubocop for best practices
 gem 'rubocop', '>= 1.0', '< 2.0'
 
