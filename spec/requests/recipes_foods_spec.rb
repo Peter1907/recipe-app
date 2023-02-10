@@ -16,14 +16,14 @@ RSpec.describe 'Shopping List', type: :request do
 
 
   describe 'Index action' do
-    before(:each) { get recipe_path(@recipe) }
+    before(:each) { get shopping_lists_path(@recipe.id) }
 
     it 'renders the view with the correct info' do
       expect(response.body).to include('Tomato')
       expect(response.body).to include('Onion')
-      expect(response.body).to include('Value')
+      expect(response.body).to include('Price')
       expect(response.body).to include('Quantity')
-      expect(response.body).to include('$100')
+      expect(response.body).to include('$200')
       expect(response.body).to_not include('No Ingredients added yet')
     end
   end
