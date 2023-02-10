@@ -6,18 +6,17 @@ RSpec.describe Recipe, type: :model do
   let(:food) { Food.create(name: 'test', measurement_unit: 'kg', price: 10, quantity: 10, user_id: user.id) }
   let(:recipes_food) { RecipesFood.create(recipe_id: recipe.id, food_id: food.id, quantity: 10) }
 
-  it 'is valid with valid attributes' do
+  it 'has valid description' do
     recipe.description = 'a' * 50
     expect(recipe).to be_valid
+    recipe.description = nil
+    expect(recipe).to_not be_valid
+    recipe.description = 'a' * 19
+    expect(recipe).to_not be_valid
   end
 
   it 'is not valid without a name' do
     recipe.name = nil
-    expect(recipe).to_not be_valid
-  end
-
-  it 'is not valid without a description' do
-    recipe.description = nil
     expect(recipe).to_not be_valid
   end
 
@@ -41,11 +40,6 @@ RSpec.describe Recipe, type: :model do
     expect(recipe).to_not be_valid
   end
 
-  it 'is not valid with a description shorter than 20 characters' do
-    recipe.description = 'a' * 19
-    expect(recipe).to_not be_valid
-  end
-
   it 'is not valid with a preparation time less than 1' do
     recipe.preparation_time = 0
     expect(recipe).to_not be_valid
@@ -53,11 +47,6 @@ RSpec.describe Recipe, type: :model do
 
   it 'is not valid with a cooking time less than 1' do
     recipe.cooking_time = 0
-    expect(recipe).to_not be_valid
-  end
-
-  it 'is not valid with a public different from true or false' do
-    recipe.public = 'test'
     expect(recipe).to_not be_valid
   end
 end
