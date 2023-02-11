@@ -1,0 +1,23 @@
+<div class="nav-bar w-[100%] bg-blueD fixed z-10 shadow-lg shadow-yellow-600">
+  <div class="nav-bar-content flex justify-between items-center w-[90%] mx-auto">
+    <div class="logo">
+      <img src="/logo.png" alt="logo" class="w-24 h-24 m-2 cursor-pointer">
+    </div>
+    <div class="nav-links">
+      <ul class="desktop flex flex-col sm:flex-row">
+        <li>
+          <%= link_to "Home", root_path, class: "text-xl font-semibold text-white rounded py-1 px-4
+            hover:text-yellow hover:shadow-lg hover:bg-black hover:bg-opacity-30 ease-in-out duration-300 rounded-md sm:py-3 sm:px-6" %>
+        </li>
+        <li>
+          <%= link_to "Recipes", recipes_path, class: "text-xl font-semibold text-white rounded py-1 px-4
+            hover:text-yellow hover:shadow-lg hover:bg-black hover:bg-opacity-30 ease-in-out duration-300 rounded-md sm:py-3 sm:px-6" %>
+        </li>
+        <li>
+          <%= link_to "Foods", foods_path, class: "text-xl font-semibold text-white rounded py-1 px-4
+            hover:text-yellow hover:shadow-lg hover:bg-black hover:bg-opacity-30 ease-in-out duration-300 rounded-md sm:py-3 sm:px-6" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

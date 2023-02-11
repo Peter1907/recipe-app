@@ -1,0 +1,25 @@
+<div class="recipes bg-gradient-to-b from-blue/75 to-blueD bg-fixed flex flex-col w-full min-h-screen bg-slate-200 items-center gap-4 p-[2%]">
+  <div class = "flex flex-row mb-4">
+    <h1 class="text-3xl font-semibold font-pacifico italic mt-4 text-yellowL sm:text-6xl sm:mb-8">Public Recipes</h1>
+  </div>
+  <% @public_recipes.each do |recipe| %>
+    <div class="recipe flex flex-row justify-between w-[90%] text-gray-700
+      bg-gradient-to-b from-blueM to-blueL p-8 rounded-md hover:scale-105 ease-in-out duration-500
+      hover:shadow-2xl hover:cursor-pointer hover:text-gray-900 sm:w-[64%] sm:text-xl"
+    >
+      <div>
+        <%= link_to recipe_path(recipe) do %>
+          <p class = "py-2 px-4 self-start hover:text-yellow hover:shadow-lg
+            hover:bg-black hover:bg-black/30 ease-in-out duration-300
+            rounded-md text-xl font-semibold sm:text-2xl">Recipe Name: <%= recipe.name %>
+          </p>
+        <% end %>
+        <p class = "pl-6 self-start">By: <%= recipe.user.name %></p>
+      </div>
+      <div>
+        <p class = "self-start">Total Food Items: <%= RecipesFood.where(recipe_id: recipe.id).count %></p>
+        <p class = "self-start">Total Price: $<%= recipe.total_value(recipe.id) %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
