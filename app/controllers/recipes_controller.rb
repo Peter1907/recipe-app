@@ -21,8 +21,8 @@ class RecipesController < ApplicationController
       flash[:notice] = 'Recipe created'
       redirect_to recipes_path
     else
-      flash.now[:alert] = 'Recipe couldn\'t be created'
-      render :new
+      flash[:alert] = @recipe.errors.full_messages.join(', ')
+      redirect_to new_recipe_path
     end
   end
 
