@@ -13,6 +13,29 @@
 
   <body>
     <%= render "layouts/navbar" %>
+    <% if current_user %>
+      <%= button_to "[➥", destroy_user_session_path, method: :delete,
+        class: 'absolute top-28 right-2 p-2 text-white font-bold hover:text-yellow
+          hover:shadow-lg hover:bg-black hover:bg-black/30 ease-in-out duration-300
+          rounded-md sm:text-xl lg:text-2xl xl:text-3xl sm:right-8
+          lg:right-14 xl:right-20 2xl:right-28',
+        title: 'Log-out'
+      %>
+      <p class="absolute top-28 left-4 text-white sm:text-lg lg:text-xl sm:left-16 lg:left-20 lg:top-32">
+        Hello, <span class="font-semibold"><%= current_user.name %></span>
+      </p>
+    <% else %>
+      <%= link_to "Log-in", new_user_session_path,
+        class: 'absolute top-28 right-2 p-2 text-white font-semibold hover:text-yellow
+          hover:shadow-lg hover:bg-black hover:bg-black/30 ease-in-out duration-300
+          rounded-md lg:text-xl sm:right-8
+          lg:right-14 xl:right-20 2xl:right-28',
+        title: 'Logout'
+      %>
+      <p class="absolute top-28 left-4 text-white sm:text-lg lg:text-xl sm:left-16 lg:left-20 lg:top-32">
+        Hello, <span class="font-semibold">Guest</span>
+      </p>
+    <% end %>
     <div class="w-screen pt-28 flex flex-col items-center">
       <% if flash[:notice] %>
         <p class="notice text-center bg-green-400 w-screen p-4 text-green-900 font-semibold"><%= notice %></p>
