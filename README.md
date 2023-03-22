@@ -24,10 +24,10 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 BLOG APPLICATION <a name="about-project"></a>
+# 📖 RECIPE APP <a name="about-project"></a>
 
-**BLOG APPLICATION** is a classic example of a blog website implemented using the Ruby on Rails Frawework. 
-The application is a fully functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
+**RECIPE APP** is a full-stack application that can allow users to create accounts, login, add their different types of food and recipes, and to generate a shopping list for every recipe they have.
+The user can also have access to a 'public recipes' page without the need for logging in. 
 
 
 ## 🛠 Built With <a name="built-with"></a>
